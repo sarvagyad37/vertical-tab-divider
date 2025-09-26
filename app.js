@@ -32,6 +32,7 @@ function applyBackground(hex){
   const [r,g,b] = hexToRgb01(hex);
   const L = luminanceFromRgb01(r,g,b);
   document.documentElement.classList.toggle('dark', L < 0.5);
+  document.documentElement.classList.toggle('light', L >= 0.5);
 }
 function applyPanel(hex){
   if(!hex) return;
@@ -80,8 +81,23 @@ function init(){
   document.title = t;
   titleInput.value = t;
   if(g){ iconURL=g; iconImg.src=g; setFavicon(g); }
-  if(c){ const hex = '#'+c.replace(/[^0-9a-fA-F]/g,''); if(bgColorInput) bgColorInput.value = hex; applyBackground(hex); }
-  if(p){ const hexP = '#'+p.replace(/[^0-9a-fA-F]/g,''); colorInput.value = hexP; applyPanel(hexP); }
+  if(c){
+    const hex = '#'+c.replace(/[^0-9a-fA-F]/g,'');
+    if(bgColorInput) bgColorInput.value = hex;
+    applyBackground(hex);
+  } else {
+    const cs = getComputedStyle(document.documentElement);
+    const currentBg = cs.getPropertyValue('--bg').trim();
+    if(bgColorInput && currentBg){ bgColorInput.value = currentBg; }
+  }
+  if(p){
+    const hexP = '#'+p.replace(/[^0-9a-fA-F]/g,'');
+    colorInput.value = hexP; applyPanel(hexP);
+  } else {
+    const cs = getComputedStyle(document.documentElement);
+    const currentPanel = cs.getPropertyValue('--panel').trim();
+    if(currentPanel){ colorInput.value = currentPanel; }
+  }
 }
 
 colorInput.addEventListener('input', ()=>{ const v = colorInput.value; if(v){ applyPanel(v); writeURL(false); } });

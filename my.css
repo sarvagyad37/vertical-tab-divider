@@ -1,5 +1,6 @@
-:root{ --bg:#ffffff; --fg:#171717; --panel:#ffffff; --border:#e5e5e5; --panel-fg:var(--fg); --panel-border:var(--border); --panel-placeholder:var(--border); }
+:root{ --bg:#0a0a0a; --fg:#fafafa; --panel:#111111; --border:#262626; --panel-fg:var(--fg); --panel-border:var(--border); --panel-placeholder:#a3a3a3; }
 .dark{ --bg:#0a0a0a; --fg:#fafafa; --panel:#111111; --border:#262626; --panel-placeholder:#a3a3a3; }
+.light{ --bg:#ffffff; --fg:#171717; --panel:#ffffff; --border:#e5e5e5; --panel-fg:var(--fg); --panel-border:var(--border); --panel-placeholder:var(--border); }
 body{ background-color:var(--bg); color:var(--fg); }
 #tab{ background-color:var(--panel); border-color:var(--panel-border); color:var(--panel-fg); }
 .abs-color{ position:absolute; inset:0; opacity:0; border:0; padding:0; margin:0; cursor:pointer; }

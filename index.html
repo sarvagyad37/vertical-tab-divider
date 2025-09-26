@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Group — Tabs</title>
+  <link id="favicon" rel="icon">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="my.css">
+</head>
+<body>
+  <div class="flex min-h-screen flex-col items-center justify-center gap-3 p-3">
+    <div id="tab" class="flex items-center m-3 max-w-sm rounded border p-2 gap-2">
+      <button id="iconBtn" class="shrink-0">
+        <img id="iconImg" src="https://i.gifer.com/7AAc.gif" alt="icon" width="32" height="32" class="rounded" />
+      </button>
+      <input id="titleInput" class="flex-1 bg-transparent outline-none p-2" placeholder="Work" />
+      <label id="bgPicker" class="rounded border p-1" title="Panel">🎨
+        <input id="colorInput" type="color" class="abs-color" />
+      </label>
+    </div>
+
+    <!-- Quick Notes (minimal) -->
+    <section id="notes" class="w-full max-w-xl rounded border p-3">
+      <h2 class="text-lg font-semibold mb-2">Quick Notes</h2>
+      <div id="checklist" class="flex flex-col gap-1 mb-2"></div>
+      <textarea id="notesText" placeholder="Write a quick note…"></textarea>
+    </section>
+  </div>
+
+  <!-- No extra UI -->
+
+  <!-- Floating background color picker (bottom-right) -->
+  <label id="bgFloatPicker" class="rounded border p-2" title="Background">
+    🎨
+    <input id="bgColorInput" type="color" class="abs-color" />
+  </label>
+  <script src="app.js"></script>
+</body>
+</html>

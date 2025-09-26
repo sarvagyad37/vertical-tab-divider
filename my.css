@@ -1,0 +1,23 @@
+:root{ --bg:#ffffff; --fg:#171717; --panel:#ffffff; --border:#e5e5e5; --panel-fg:var(--fg); --panel-border:var(--border); --panel-placeholder:var(--border); }
+.dark{ --fg:#fafafa; --panel:#111111; --border:#262626; }
+body{ background-color:var(--bg); color:var(--fg); }
+#tab{ background-color:var(--panel); border-color:var(--panel-border); color:var(--panel-fg); }
+.abs-color{ position:absolute; inset:0; opacity:0; border:0; padding:0; margin:0; cursor:pointer; }
+
+/* Minimal notes */
+#notes{ background-color:var(--panel); border-color:var(--panel-border); color:var(--panel-fg); }
+#notes textarea{ width:100%; background:transparent; color:var(--panel-fg); border:1px solid var(--panel-border); border-radius:0.5rem; padding:0.75rem; resize:vertical; min-height:8rem; outline:none; }
+#notes textarea::placeholder{ color:var(--panel-placeholder); }
+#tab input::placeholder{ color:var(--panel-placeholder); }
+
+/* Checklist */
+#checklist .chk-item{ display:flex; align-items:center; gap:0.5rem; padding:0.25rem; border:1px solid transparent; border-radius:0.5rem; }
+#checklist .chk-item:focus-within{ border-color:var(--panel-border); }
+#checklist .chk-box{ width:1rem; height:1rem; accent-color:var(--panel-fg); }
+#checklist .chk-text{ flex:1; min-height:1.5rem; outline:none; }
+#checklist .chk-text:empty:before{ content:attr(data-placeholder); color:var(--panel-placeholder); pointer-events:none; }
+#checklist .chk-checked .chk-text{ text-decoration:line-through; opacity:0.7; }
+
+/* Floating/background pickers */
+#bgPicker{ position:relative; display:inline-flex; align-items:center; justify-content:center; }
+#bgFloatPicker{ position:fixed; right:12px; bottom:12px; display:inline-flex; align-items:center; justify-content:center; z-index:50; }

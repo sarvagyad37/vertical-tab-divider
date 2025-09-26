@@ -86,18 +86,18 @@ function init(){
     if(bgColorInput) bgColorInput.value = hex;
     applyBackground(hex);
   } else {
-    const cs = getComputedStyle(document.documentElement);
-    const currentBg = cs.getPropertyValue('--bg').trim();
-    if(bgColorInput && currentBg){ bgColorInput.value = currentBg; }
+    const defaultBg = '#0b0b0b';
+    if(bgColorInput){ bgColorInput.value = defaultBg; }
+    applyBackground(defaultBg);
   }
   if(p){
     const hexP = '#'+p.replace(/[^0-9a-fA-F]/g,'');
     colorInput.value = hexP; applyPanel(hexP);
   } else {
-    const cs = getComputedStyle(document.documentElement);
-    const currentPanel = cs.getPropertyValue('--panel').trim();
-    if(currentPanel){ colorInput.value = currentPanel; }
+    const defaultPanel = '#000000';
+    colorInput.value = defaultPanel; applyPanel(defaultPanel);
   }
+  writeURL(false);
 }
 
 colorInput.addEventListener('input', ()=>{ const v = colorInput.value; if(v){ applyPanel(v); writeURL(false); } });

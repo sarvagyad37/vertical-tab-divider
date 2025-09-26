@@ -51,7 +51,7 @@ function applyPanel(hex){
   const borderHex = '#' + toHex(nbR) + toHex(nbG) + toHex(nbB);
   document.documentElement.style.setProperty('--panel-border', borderHex);
   const phToward = panelFg === '#fafafa' ? 0 : 1;
-  const phK = 0.65;
+  const phK = 0.45;
   const pfR = panelFg === '#fafafa' ? 1 : 0, pfG = pfR, pfB = pfR;
   const phR = pfR + (phToward - pfR) * phK;
   const phG = pfG + (phToward - pfG) * phK;

@@ -1,5 +1,5 @@
 :root{ --bg:#ffffff; --fg:#171717; --panel:#ffffff; --border:#e5e5e5; --panel-fg:var(--fg); --panel-border:var(--border); --panel-placeholder:var(--border); }
-.dark{ --fg:#fafafa; --panel:#111111; --border:#262626; }
+.dark{ --bg:#0a0a0a; --fg:#fafafa; --panel:#111111; --border:#262626; --panel-placeholder:#a3a3a3; }
 body{ background-color:var(--bg); color:var(--fg); }
 #tab{ background-color:var(--panel); border-color:var(--panel-border); color:var(--panel-fg); }
 .abs-color{ position:absolute; inset:0; opacity:0; border:0; padding:0; margin:0; cursor:pointer; }
@@ -13,10 +13,16 @@ body{ background-color:var(--bg); color:var(--fg); }
 /* Checklist */
 #checklist .chk-item{ display:flex; align-items:center; gap:0.5rem; padding:0.25rem; border:1px solid transparent; border-radius:0.5rem; }
 #checklist .chk-item:focus-within{ border-color:var(--panel-border); }
-#checklist .chk-box{ width:1rem; height:1rem; accent-color:var(--panel-fg); }
+#checklist .chk-box{ -webkit-appearance:none; appearance:none; width:1.125rem; height:1.125rem; border:2px solid var(--panel-border); border-radius:0.375rem; background:transparent; cursor:pointer; display:inline-grid; place-content:center; transition:background-color .15s ease, border-color .15s ease, box-shadow .15s ease, transform .05s ease; }
+#checklist .chk-box:hover{ border-color:var(--panel-fg); }
+#checklist .chk-box:active{ transform:scale(0.96); }
+#checklist .chk-box:focus-visible{ outline:2px solid var(--panel-border); outline-offset:2px; }
+#checklist .chk-box::after{ content:''; width:0.6rem; height:0.35rem; border-right:2px solid transparent; border-bottom:2px solid transparent; transform:rotate(45deg) scale(0); transition:transform .15s ease, border-color .15s ease; }
+#checklist .chk-box:checked{ background-color:transparent; border-color:var(--panel-fg); }
+#checklist .chk-box:checked::after{ border-color:var(--panel-fg); transform:rotate(45deg) scale(1); }
 #checklist .chk-text{ flex:1; min-height:1.5rem; outline:none; }
 #checklist .chk-text:empty:before{ content:attr(data-placeholder); color:var(--panel-placeholder); pointer-events:none; }
-#checklist .chk-checked .chk-text{ text-decoration:line-through; opacity:0.7; }
+#checklist .chk-checked .chk-text{ text-decoration:line-through; text-decoration-thickness:2px; text-decoration-color:var(--panel-placeholder); opacity:0.6; }
 
 /* Floating/background pickers */
 #bgPicker{ position:relative; display:inline-flex; align-items:center; justify-content:center; }
